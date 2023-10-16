@@ -1,0 +1,572 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "contact": {
+            "type": "object",
+            "properties": {
+                "salutation": {
+                    "type": "string",
+                    "enum": [
+                        "Monsieur",
+                        "Madame",
+                        "Mademoiselle"
+                    ],
+                    "description": "Civilité du demandeur (Salutation of the applicant)."
+                },
+                "prenom": {
+                    "type": "string",
+                    "description": "Prénom du demandeur (First name of the applicant)."
+                },
+                "nom": {
+                    "type": "string",
+                    "description": "Nom du demandeur (Last name of the applicant)."
+                },
+                "dateDeNaissance": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Date de naissance du demandeur (Date of birth of the applicant)."
+                },
+                "statutMarital": {
+                    "type": "string",
+                    "enum": [
+                        "Célibataire",
+                        "Marrié(e)",
+                        "Divorcé(e)",
+                        "Feuf(ve)"
+                    ],
+                    "description": "Situation maritale du demandeur (Marital status of the applicant)."
+                },
+                "nombreEnfants": {
+                    "type": "integer",
+                    "description": "Nombre d'enfants du demandeur (Number of children of the applicant)."
+                },
+                "enfants": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "prenom": {
+                                "type": "string",
+                                "description": "Prénom de l'enfant (First name of the child)."
+                            },
+                            "nom": {
+                                "type": "string",
+                                "description": "Nom de l'enfant (Last name of the child)."
+                            },
+                            "dateDeNaissance": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date de naissance de l'enfant (Date of birth of the child)."
+                            },
+                            "situation": {
+                                "type": "string",
+                                "description": "Situation de l'enfant (Situation of the child)."
+                            }
+                        }
+                    },
+                    "description": "Liste des enfants du demandeur (List of children of the applicant)."
+                },
+                "addresse": {
+                    "type": "object",
+                    "properties": {
+                        "numeroDeRue": {
+                            "type": "string",
+                            "description": "Numéro de rue (Street number)."
+                        },
+                        "rue": {
+                            "type": "string",
+                            "description": "Rue (Street)."
+                        },
+                        "complement": {
+                            "type": "string",
+                            "description": "Ligne d'adresse (Address line)."
+                        },
+                        "codePostal": {
+                            "type": "string",
+                            "description": "Code postal (Zip code)."
+                        },
+                        "ville": {
+                            "type": "string",
+                            "description": "Ville (City)."
+                        },
+                        "pays": {
+                            "type": "string",
+                            "description": "Pays (Country)."
+                        },
+                        "longitude": {
+                            "type": "number",
+                            "description": "Longitude (Longitude)."
+                        },
+                        "latitude": {
+                            "type": "number",
+                            "description": "Latitude (Latitude)."
+                        }
+                    },
+                    "description": "Adresse de contact du demandeur (Contact address of the applicant)."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Adresse électronique du demandeur (Email address of the applicant)."
+                },
+                "telephoneDomicile": {
+                    "type": "string",
+                    "description": "Numéro de téléphone domicile du demandeur (Home phone number of the applicant)."
+                },
+                "telephoneMobile": {
+                    "type": "string",
+                    "description": "Numéro de téléphone portable du demandeur (Mobile phone number of the applicant)."
+                },
+                "telephoneBureau": {
+                    "type": "string",
+                    "description": "Numéro de téléphone professionnel du demandeur (Work phone number of the applicant)."
+                },
+                "typeTelephonePrefere": {
+                    "type": "string",
+                    "description": "Numéro de téléphone préféré du demandeur (Preferred phone number of the applicant)."
+                },
+                "profession": {
+                    "type": "object",
+                    "properties": {
+                        "libelle": {
+                            "type": "string",
+                            "description": "Libellé de la profession (Label or title of the profession)."
+                        },
+                        "situation": {
+                            "type": "string",
+                            "enum": [
+                                "Salarié",
+                                "Indépendant",
+                                "Etudiant",
+                                "Retraité",
+                                "Sans emploi"
+                            ],
+                            "description": "Situation professionnelle du demandeur (Employment situation of the applicant)."
+                        },
+                        "categorie": {
+                            "type": "string",
+                            "enum": [
+                                "Cadre",
+                                "Employé",
+                                "Ouvrier",
+                                "Agriculteur",
+                                "Artisan",
+                                "Commerçant",
+                                "Profession libérale",
+                                "Fonctionnaire",
+                                "Retraité",
+                                "Autre"
+                            ],
+                            "description": "Catégorie socio-professionnelle du demandeur (Socio-professional category of the applicant)."
+                        }
+                    },
+                    "description": "Informations sur la profession du demandeur (Information about the applicant's profession)."
+                }
+            },
+            "description": "Informations sur le demandeur (Information about the applicant)."
+        },
+        "professionnel": {
+            "type": "object",
+            "properties": {
+                "identifiant": {
+                    "type": "string",
+                    "description": "Identifiantélectronique du professionnel immobilier (Identifier address of the realtor)."
+                },
+                "email": {
+                    "type": "string",
+                    "description": "Adresse électronique du professionnel immobilier (Email address of the realtor)."
+                },
+                "nom": {
+                    "type": "string",
+                    "description": "Nom du professionnel immobilier (Name of the realtor)."
+                }
+            }
+        },
+        "projet": {
+            "type": "object",
+            "properties": {
+                "identifiant": {
+                    "type": "string",
+                    "description": "Identifiant unique du projet (Unique identifier of the project)."
+                },
+                "typeProjet": {
+                    "type": "string",
+                    "enum": [
+                        "Achat",
+                        "Vente",
+                        "Bail",
+                        "Location"
+                    ],
+                    "description": "Type de projet immobilier (Type of real estate project)."
+                },
+                "dateCreation": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date de création du projet (Date of project creation)."
+                },
+                "dateDebut": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Date de début du projet."
+                },
+                "statut": {
+                    "type": "string",
+                    "enum": [
+                        "En Réflexion",
+                        "Actif",
+                        "Suspendu",
+                        "Terminé"
+                    ],
+                    "description": "Statut du projet immobilier (Type of real estate status)."
+                },
+               
+                "detailsAchat": {
+                    "type": "object",
+                    "properties": {
+                        "typeBien": {
+                            "type": "string",
+                            "enum": [
+                                "Maison",
+                                "Appartement",
+                                "Terrain",
+                                "Parking",
+                                "Garage",
+                                "Local commercial",
+                                "Autre"
+                            ],
+                            "description": "Type de propriété recherchée (Type of property being sought)."
+                        },
+                        "zoneRecherche": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "numeroDeRue": {
+                                        "type": "string",
+                                        "description": "Numéro de rue (Street number)."
+                                    },
+                                    "rue": {
+                                        "type": "string",
+                                        "description": "Rue (Street)."
+                                    },
+                                    "complement": {
+                                        "type": "string",
+                                        "description": "Ligne d'adresse (Address line)."
+                                    },
+                                    "codePostal": {
+                                        "type": "string",
+                                        "description": "Code postal (Zip code)."
+                                    },
+                                    "ville": {
+                                        "type": "string",
+                                        "description": "Ville (City)."
+                                    },
+                                    "pays": {
+                                        "type": "string",
+                                        "description": "Pays (Country)."
+                                    },
+                                    "longitude": {
+                                        "type": "number",
+                                        "description": "Longitude (Longitude)."
+                                    },
+                                    "latitude": {
+                                        "type": "number",
+                                        "description": "Latitude (Latitude)."
+                                    },
+                                    "rayon": {
+                                        "type": "number",
+                                        "description": "Rayon de recherche (Search radius) en kms."
+                                    }
+                                },
+                                "description": "Description d'une zone de recherche"
+                            }
+                        },
+                        "criteresBien": {
+                            "type": "object",
+                            "properties": {
+                                "pieces": {
+                                    "type": "integer",
+                                    "description": "Nombre de pièces (Number of rooms)."
+                                },
+                                "surface": {
+                                    "type": "number",
+                                    "description": "Surface du bien (Surface area of the property)."
+                                },
+                                "surfaceTerrain": {
+                                    "type": "number",
+                                    "description": "Surface de la zone (Area surface)."
+                                },
+                                "etage": {
+                                    "type": "integer",
+                                    "description": "Niveau de l'étage (Floor level)."
+                                },
+                                "nombreEtages": {
+                                    "type": "integer",
+                                    "description": "Nombre d'étages (Number of floors)."
+                                },
+                                "sallesDeBain": {
+                                    "type": "integer",
+                                    "description": "Nombre de salles de bains (Number of bathrooms)."
+                                },
+                                "chambres": {
+                                    "type": "integer",
+                                    "description": "Nombre de chambres (Number of bedrooms)."
+                                },
+                                "placesGarage": {
+                                    "type": "integer",
+                                    "description": "Nombre de places de garage (Number of garage spaces)."
+                                },
+                                "placesParking": {
+                                    "type": "integer",
+                                    "description": "Nombre de places de parking (Number of parking spaces)."
+                                },
+                                "jardin": {
+                                    "type": "boolean",
+                                    "description": "Présence d'un jardin (Whether there is a garden)."
+                                },
+                                "balcon": {
+                                    "type": "boolean",
+                                    "description": "Présence d'un balcon (Whether there is a balcony)."
+                                },
+                                "condition": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Neuf",
+                                        "A rénover",
+                                        "Bon état"
+                                    ],
+                                    "description": "État général du bien (Property condition)."
+                                },
+                                "orientation": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Nord",
+                                        "Sud",
+                                        "Est",
+                                        "Ouest"
+                                    ],
+                                    "description": "Orientation du bien (Property orientation)."
+                                }
+                            },
+                            "description": "Détails du bien recherché (Details of the property being sought)."
+                        },
+                        "informationsFinancieres": {
+                            "type": "object",
+                            "properties": {
+                                "montantDuBien": {
+                                    "type": "number",
+                                    "description": "Prix maximum de la propriété (Maximum property price)."
+                                },
+                                "montantTravaux": {
+                                    "type": "number",
+                                    "description": "Coût maximum des travaux de rénovation (Maximum renovation cost)."
+                                },
+                                "montantProjet": {
+                                    "type": "number",
+                                    "description": "Prix maximum du projet (Maximum project price)."
+                                },
+                                "montantApport": {
+                                    "type": "number",
+                                    "description": "Montant de la contribution (Contribution amount)."
+                                },
+                                "financementValide": {
+                                    "type": "boolean",
+                                    "description": "Financement validé (Whether financing is validated)."
+                                }
+                            },
+                            "description": "Informations financières liées à la recherche de propriété (Financial details related to the property search)."
+                        },
+                        "proximites": {
+                            "type": "object",
+                            "properties": {
+                                "ecole": {
+                                    "type": "boolean",
+                                    "description": "Proximité des écoles (Proximity to schools)."
+                                },
+                                "creche": {
+                                    "type": "boolean",
+                                    "description": "Proximité des crèches (Proximity to nurseries)."
+                                },
+                                "hopital": {
+                                    "type": "boolean",
+                                    "description": "Proximité des hôpitaux (Proximity to hospitals)."
+                                },
+                                "commerces": {
+                                    "type": "boolean",
+                                    "description": "Proximité des commerces (Proximity to shops)."
+                                }
+                            },
+                            "description": "Proximité de services ou commerces (Proximity to services or shops)."
+                        }
+                    },
+                    "description": "Informations sur la recherche de propriété (Information about the property search)."
+                },
+                "detailsVente": {
+                    "type": "object",
+                    "properties": {
+                        "typeBien": {
+                            "type": "string",
+                            "enum": [
+                                "Maison",
+                                "Appartement",
+                                "Terrain",
+                                "Parking",
+                                "Garage",
+                                "Local commercial",
+                                "Autre"
+                            ],
+                            "description": "Type de propriété recherchée (Type of property being sought)."
+                        },
+                        "pieces": {
+                            "type": "integer",
+                            "description": "Nombre de pièces (Number of rooms)."
+                        },
+                        "surface": {
+                            "type": "number",
+                            "description": "Surface du bien (Surface area of the property)."
+                        },
+                        "surfaceTerrain": {
+                            "type": "number",
+                            "description": "Surface de la zone (Area surface)."
+                        },
+                        "etage": {
+                            "type": "integer",
+                            "description": "Niveau de l'étage (Floor level)."
+                        },
+                        "nombreEtages": {
+                            "type": "integer",
+                            "description": "Nombre d'étages (Number of floors)."
+                        },
+                        "condition": {
+                            "type": "string",
+                            "enum": [
+                                "Neuf",
+                                "À rénover",
+                                "Bon état"
+                            ],
+                            "description": "État général du bien (Property condition)."
+                        },
+                        "orientation": {
+                            "type": "string",
+                            "enum": [
+                                "Nord",
+                                "Sud",
+                                "Est",
+                                "Ouest"
+                            ],
+                            "description": "Orientation du bien (Property orientation)."
+                        },
+                        "adresse": {
+                            "type": "object",
+                            "properties": {
+                                "numeroDeRue": {
+                                    "type": "string",
+                                    "description": "Numéro de rue (Street number)."
+                                },
+                                "rue": {
+                                    "type": "string",
+                                    "description": "Rue (Street)."
+                                },
+                                "complement": {
+                                    "type": "string",
+                                    "description": "Ligne d'adresse (Address line)."
+                                },
+                                "codePostal": {
+                                    "type": "string",
+                                    "description": "Code postal (Zip code)."
+                                },
+                                "ville": {
+                                    "type": "string",
+                                    "description": "Ville (City)."
+                                },
+                                "pays": {
+                                    "type": "string",
+                                    "description": "Pays (Country)."
+                                },
+                                "longitude": {
+                                    "type": "number",
+                                    "description": "Longitude (Longitude)."
+                                },
+                                "latitude": {
+                                    "type": "number",
+                                    "description": "Latitude (Latitude)."
+                                }
+                            },
+                            "description": "Détails de l'emplacement du bien à vendre (Details of the location of the property for sale)."
+                        },
+                        "informationsFinancieres": {
+                            "type": "object",
+                            "properties": {
+                                "prixAttendu": {
+                                    "type": "number",
+                                    "description": "Prix attendu du bien (Expected price of the property)."
+                                },
+                                "montantEstimeRenovation": {
+                                    "type": "number",
+                                    "description": "Coût estimé des travaux de rénovation (Estimated renovation cost)."
+                                },
+                                "prixEstime": {
+                                    "type": "number",
+                                    "description": "Prix estimé par un professionnel (Price estimated by a professional)."
+                                },
+                                "nomProfessionnelEstimation": {
+                                    "type": "number",
+                                    "description": "Prix estimé par un professionnel (Price estimated by a professional)."
+                                }
+                            },
+                            "description": "Informations financières liées à la vente de propriété (Financial details related to the property sale)."
+                        },
+                        "estimation": {
+                            "type": "object",
+                            "properties": {
+                                "prixEstime": {
+                                    "type": "number",
+                                    "description": "Prix estimé par un professionnel (Price estimated by a professional)."
+                                },
+                                "nomProfessionnel": {
+                                    "type": "string",
+                                    "description": "Nom du professionnel ayant réalisé l'estimation."
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date",
+                                    "description": "Nom du professionnel ayant réalisé l'estimation."
+                                }
+                            },
+                            "description": "Informations financières liées à la vente de propriété (Financial details related to the property sale)."
+                        },
+                        "proximites": {
+                            "type": "object",
+                            "properties": {
+                                "ecole": {
+                                    "type": "boolean",
+                                    "description": "Proximité des écoles (Proximity to schools)."
+                                },
+                                "creche": {
+                                    "type": "boolean",
+                                    "description": "Proximité des crèches (Proximity to nurseries)."
+                                },
+                                "hopital": {
+                                    "type": "boolean",
+                                    "description": "Proximité des hôpitaux (Proximity to hospitals)."
+                                },
+                                "commerces": {
+                                    "type": "boolean",
+                                    "description": "Proximité des commerces (Proximity to shops)."
+                                }
+                            },
+                            "description": "Proximité de services ou commerces (Proximity to services or shops)."
+                        }
+                    },
+                    "description": "Informations sur la vente de propriété (Information about the property for sale)."
+                }
+            },
+            "description": "Informations sur le projet immobilier (Information about the real estate project)."
+        }
+    },
+    "required": [
+        "applicant",
+        "project"
+    ],
+    "description": "Format standard d'échange de description de projet immobilier (Standard format for exchanging real estate project descriptions)."
+}

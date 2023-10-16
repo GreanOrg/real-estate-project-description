@@ -1,0 +1,499 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "applicant": {
+            "type": "object",
+            "properties": {
+                "salutation": {
+                    "type": "string",
+                    "enum": [
+                        "Mr.",
+                        "Mrs.",
+                        "Miss"
+                    ],
+                },
+                "firstName": {
+                    "type": "string",
+                },
+                "lastName": {
+                    "type": "string",
+                },
+                "dateOfBirth": {
+                    "type": "string",
+                    "format": "date",
+                },
+                "maritalStatus": {
+                    "type": "string",
+                    "enum": [
+                        "Single",
+                        "Married",
+                        "Divorced",
+                        "Widow/Widower"
+                       
+                    ],
+                },
+                "numberOfChildren": {
+                    "type": "integer",
+                },
+                "children": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "firstName": {
+                                "type": "string",
+                            },
+                            "lastName": {
+                                "type": "string",
+                            },
+                            "dateOfBirth": {
+                                "type": "string",
+                                "format": "date",
+                            },
+                            "situation": {
+                                "type": "string",
+                            }
+                        },
+                        "required": [
+                            "firstName",
+                            "lastName",
+                            "dateOfBirth",
+                            "situation"
+                        ]
+                    },
+                },
+                "address": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "string",
+                        },
+                        "addressLine": {
+                            "type": "string",
+                        },
+                        "streetNumber": {
+                            "type": "string",
+                        },
+                        "street": {
+                            "type": "string",
+                        },
+                        "zipCode": {
+                            "type": "string",
+                        },
+                        "city": {
+                            "type": "string",
+                        },
+                        "country": {
+                            "type": "string",
+                        },
+                        "lng": {
+                            "type": "number",
+                        },
+                        "lat": {
+                            "type": "number",
+                        },
+                        "name": {
+                            "type": "string",
+                        },
+                        "zone": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "lng": {
+                                        "type": "number",
+                                    },
+                                    "lat": {
+                                        "type": "number",
+                                    }
+                                },
+                                "required": [
+                                    "lng",
+                                    "lat"
+                                ]
+                            },
+                        }
+                    },
+                    "required": [
+                        "id",
+                        "addressLine",
+                        "streetNumber",
+                        "street",
+                        "zipCode",
+                        "city",
+                        "country"
+                    ],
+                },
+                "email": {
+                    "type": "string",
+                },
+                "homePhoneNumber": {
+                    "type": "string",
+                },
+                "mobilePhoneNumber": {
+                    "type": "string",
+                },
+                "workPhoneNumber": {
+                    "type": "string",
+                },
+                "preferredPhoneNumber": {
+                    "type": "string",
+                },
+                "profession": {
+                    "type": "object",
+                    "properties": {
+                        "label": {
+                            "type": "string",
+                        },
+                        "situation": {
+                            "type": "string",
+                            "enum": [
+                                "Employee",
+                                "Self-employed",
+                                "Student"
+                            ],
+                        },
+                        "category": {
+                            "type": "string",
+                            "enum": [
+                                "Managerial",
+                                "Laborer",
+                                "Farmer"
+                               
+                            ],
+                        }
+                    },
+                    "required": [
+                        "label",
+                        "situation"
+                    ],
+                }
+            },
+            "required": [
+                "firstName",
+                "lastName"
+            ],
+        },
+        "project": {
+            "type": "object",
+            "properties": {
+                "projectType": {
+                    "type": "string",
+                },
+                "realtorEmail": {
+                    "type": "string",
+                },
+                "realtorName": {
+                    "type": "string",
+                },
+                "createdAt": {
+                    "type": "string",
+                    "format": "date-time",
+                },
+                "uniqueIdentifier": {
+                    "type": "string",
+                },
+                "buyData": {
+                    "type": "object",
+                    "properties": {
+                        "propertyType": {
+                            "type": "string",
+                        },
+                        "propertyLocation": {
+                            "type": "object",
+                            "properties": {
+                                "addressLine": {
+                                    "type": "string",
+                                },
+                                "streetNumber": {
+                                    "type": "string",
+                                },
+                                "street": {
+                                    "type": "string",
+                                },
+                                "zipCode": {
+                                    "type": "string",
+                                },
+                                "city": {
+                                    "type": "string",
+                                },
+                                "country": {
+                                    "type": "string",
+                                },
+                                "lng": {
+                                    "type": "number",
+                                },
+                                "lat": {
+                                    "type": "number",
+                                },
+                                "name": {
+                                    "type": "string",
+                                },
+                                "radius": {
+                                    "type": "number",
+                                }
+                            },
+                            "required": [
+                                "addressLine",
+                                "streetNumber",
+                                "zipCode",
+                                "city",
+                                "country"
+                            ],
+                        },
+                        "propertyDetails": {
+                            "type": "object",
+                            "properties": {
+                                "roomNumber": {
+                                    "type": "integer",
+                                },
+                                "surface": {
+                                    "type": "number",
+                                },
+                                "areaSurface": {
+                                    "type": "number",
+                                },
+                                "floorLevel": {
+                                    "type": "integer",
+                                },
+                                "numberOfFloors": {
+                                    "type": "integer",
+                                },
+                                "bathrooms": {
+                                    "type": "integer",
+                                },
+                                "bedrooms": {
+                                    "type": "integer",
+                                },
+                                "garageSpaces": {
+                                    "type": "integer",
+                                },
+                                "parkingSpaces": {
+                                    "type": "integer",
+                                },
+                                "garden": {
+                                    "type": "boolean",
+                                },
+                                "balcony": {
+                                    "type": "boolean",
+                                },
+                                "condition": {
+                                    "type": "string",
+                                    "enum": [
+                                        "New",
+                                        "To renovate",
+                                        "Good condition",
+                                        "Neuf",
+                                        "À rénover",
+                                        "Bon état"
+                                    ],
+                                },
+                                "orientation": {
+                                    "type": "string",
+                                    "enum": [
+                                        "North",
+                                        "South",
+                                        "East",
+                                        "West",
+                                        "Nord",
+                                        "Sud",
+                                        "Est",
+                                        "Ouest"
+                                    ],
+                                }
+                            },
+                        },
+                        "financialInformations": {
+                            "type": "object",
+                            "properties": {
+                                "maxPropertyPrice": {
+                                    "type": "number",
+                                },
+                                "maxRenovationCost": {
+                                    "type": "number",
+                                },
+                                "maxProjectPrice": {
+                                    "type": "number",
+                                },
+                                "contributionAmount": {
+                                    "type": "number",
+                                },
+                                "financingValidated": {
+                                    "type": "boolean",
+                                }
+                            },
+                        },
+                        "proximity": {
+                            "type": "object",
+                            "properties": {
+                                "school": {
+                                    "type": "boolean",
+                                },
+                                "nursery": {
+                                    "type": "boolean",
+                                },
+                                "hospital": {
+                                    "type": "boolean",
+                                },
+                                "shops": {
+                                    "type": "boolean",
+                                }
+                            },
+                        }
+                    },
+                },
+                "sellData": {
+                    "type": "object",
+                    "properties": {
+                        "propertyType": {
+                            "type": "string",
+                        },
+                        "roomNumber": {
+                            "type": "integer",
+                        },
+                        "surface": {
+                            "type": "number",
+                        },
+                        "areaSurface": {
+                            "type": "number",
+                        },
+                        "floorLevel": {
+                            "type": "integer",
+                        },
+                        "numberOfFloors": {
+                            "type": "integer",
+                        },
+                        "condition": {
+                            "type": "string",
+                            "enum": [
+                                "New",
+                                "To renovate",
+                                "Good condition",
+                                "Neuf",
+                                "À rénover",
+                                "Bon état"
+                            ],
+                        },
+                        "orientation": {
+                            "type": "string",
+                            "enum": [
+                                "North",
+                                "South",
+                                "East",
+                                "West",
+                                "Nord",
+                                "Sud",
+                                "Est",
+                                "Ouest"
+                            ],
+                        },
+                        "propertyLocation": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                },
+                                "addressLine": {
+                                    "type": "string",
+                                },
+                                "streetNumber": {
+                                    "type": "string",
+                                },
+                                "street": {
+                                    "type": "string",
+                                },
+                                "zipCode": {
+                                    "type": "string",
+                                },
+                                "city": {
+                                    "type": "string",
+                                },
+                                "country": {
+                                    "type": "string",
+                                },
+                                "lng": {
+                                    "type": "number",
+                                },
+                                "lat": {
+                                    "type": "number",
+                                },
+                                "name": {
+                                    "type": "string",
+                                },
+                                "zone": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lng": {
+                                                "type": "number",
+                                            },
+                                            "lat": {
+                                                "type": "number",
+                                            }
+                                        },
+                                        "required": [
+                                            "lng",
+                                            "lat"
+                                        ]
+                                    },
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "addressLine",
+                                "streetNumber",
+                                "zipCode",
+                                "city",
+                                "country"
+                            ],
+                        },
+                        "financialInformations": {
+                            "type": "object",
+                            "properties": {
+                                "expectedPrice": {
+                                    "type": "number",
+                                },
+                                "estimatedRenovationCost": {
+                                    "type": "number",
+                                },
+                                "professionalEstimatedPrice": {
+                                    "type": "number",
+                                }
+                            },
+                        },
+                        "proximity": {
+                            "type": "object",
+                            "properties": {
+                                "school": {
+                                    "type": "boolean",
+                                },
+                                "nursery": {
+                                    "type": "boolean",
+                                },
+                                "hospital": {
+                                    "type": "boolean",
+                                },
+                                "shops": {
+                                    "type": "boolean",
+                                }
+                            },
+                        }
+                    },
+                }
+            },
+            "required": [
+                "projectType",
+                "realtorEmail",
+                "realtorName",
+                "createdAt",
+                "uniqueIdentifier"
+            ],
+        }
+    },
+    "required": [
+        "applicant",
+        "project"
+    ],
+}
