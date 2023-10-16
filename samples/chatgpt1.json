@@ -1,0 +1,36 @@
+{
+    "contact": {
+        "salutation": "Monsieur",
+        "prenom": "Nicolas",
+        "nom": "Letullier",
+        "email": "nletullier@outlook.com",
+        "telephoneMobile": "0614614490"
+    },
+    "professionnel": {
+        "email": "guenno@guenno.com",
+        "nom": "Franck Guenno"
+    },
+    "projet": {
+        "identifiant": "12345",
+        "typeProjet": "Vente",
+        "dateCreation": "2023-10-16T10:00:00Z",
+        "statut": "Actif",
+        "detailsVente": {
+            "typeBien": "Maison",
+            "surface": 120,
+            "adresse": {
+                "numeroDeRue": "20",
+                "rue": "rue de Paris"
+            },
+            "informationsFinancieres": {
+                "prixAttendu": 285000,
+                "montantEstimeRenovation": 20000
+            },
+            "estimation": {
+                "prixEstime": 280000,
+                "nomProfessionnel": "Century 21",
+                "date": "2023-10-16"
+            }
+        }
+    }
+}

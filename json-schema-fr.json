@@ -565,8 +565,8 @@
         }
     },
     "required": [
-        "applicant",
-        "project"
+        "contact",
+        "projet"
     ],
     "description": "Format standard d'échange de description de projet immobilier (Standard format for exchanging real estate project descriptions)."
 }

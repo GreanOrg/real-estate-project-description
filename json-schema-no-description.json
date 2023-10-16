@@ -2,300 +2,283 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "applicant": {
+        "contact": {
             "type": "object",
             "properties": {
                 "salutation": {
                     "type": "string",
                     "enum": [
-                        "Mr.",
-                        "Mrs.",
-                        "Miss"
+                        "Monsieur",
+                        "Madame",
+                        "Mademoiselle"
                     ],
                 },
-                "firstName": {
+                "prenom": {
                     "type": "string",
                 },
-                "lastName": {
+                "nom": {
                     "type": "string",
                 },
-                "dateOfBirth": {
+                "dateDeNaissance": {
                     "type": "string",
                     "format": "date",
                 },
-                "maritalStatus": {
+                "statutMarital": {
                     "type": "string",
                     "enum": [
-                        "Single",
-                        "Married",
-                        "Divorced",
-                        "Widow/Widower"
-                       
+                        "Célibataire",
+                        "Marrié(e)",
+                        "Divorcé(e)",
+                        "Feuf(ve)"
                     ],
                 },
-                "numberOfChildren": {
+                "nombreEnfants": {
                     "type": "integer",
                 },
-                "children": {
+                "enfants": {
                     "type": "array",
                     "items": {
                         "type": "object",
                         "properties": {
-                            "firstName": {
+                            "prenom": {
                                 "type": "string",
                             },
-                            "lastName": {
+                            "nom": {
                                 "type": "string",
                             },
-                            "dateOfBirth": {
+                            "dateDeNaissance": {
                                 "type": "string",
                                 "format": "date",
                             },
                             "situation": {
                                 "type": "string",
                             }
-                        },
-                        "required": [
-                            "firstName",
-                            "lastName",
-                            "dateOfBirth",
-                            "situation"
-                        ]
-                    },
-                },
-                "address": {
-                    "type": "object",
-                    "properties": {
-                        "id": {
-                            "type": "string",
-                        },
-                        "addressLine": {
-                            "type": "string",
-                        },
-                        "streetNumber": {
-                            "type": "string",
-                        },
-                        "street": {
-                            "type": "string",
-                        },
-                        "zipCode": {
-                            "type": "string",
-                        },
-                        "city": {
-                            "type": "string",
-                        },
-                        "country": {
-                            "type": "string",
-                        },
-                        "lng": {
-                            "type": "number",
-                        },
-                        "lat": {
-                            "type": "number",
-                        },
-                        "name": {
-                            "type": "string",
-                        },
-                        "zone": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "lng": {
-                                        "type": "number",
-                                    },
-                                    "lat": {
-                                        "type": "number",
-                                    }
-                                },
-                                "required": [
-                                    "lng",
-                                    "lat"
-                                ]
-                            },
                         }
                     },
-                    "required": [
-                        "id",
-                        "addressLine",
-                        "streetNumber",
-                        "street",
-                        "zipCode",
-                        "city",
-                        "country"
-                    ],
+                },
+                "addresse": {
+                    "type": "object",
+                    "properties": {
+                        "numeroDeRue": {
+                            "type": "string",
+                        },
+                        "rue": {
+                            "type": "string",
+                        },
+                        "complement": {
+                            "type": "string",
+                        },
+                        "codePostal": {
+                            "type": "string",
+                        },
+                        "ville": {
+                            "type": "string",
+                        },
+                        "pays": {
+                            "type": "string",
+                        },
+                        "longitude": {
+                            "type": "number",
+                        },
+                        "latitude": {
+                            "type": "number",
+                        }
+                    },
                 },
                 "email": {
                     "type": "string",
                 },
-                "homePhoneNumber": {
+                "telephoneDomicile": {
                     "type": "string",
                 },
-                "mobilePhoneNumber": {
+                "telephoneMobile": {
                     "type": "string",
                 },
-                "workPhoneNumber": {
+                "telephoneBureau": {
                     "type": "string",
                 },
-                "preferredPhoneNumber": {
+                "typeTelephonePrefere": {
                     "type": "string",
                 },
                 "profession": {
                     "type": "object",
                     "properties": {
-                        "label": {
+                        "libelle": {
                             "type": "string",
                         },
                         "situation": {
                             "type": "string",
                             "enum": [
-                                "Employee",
-                                "Self-employed",
-                                "Student"
+                                "Salarié",
+                                "Indépendant",
+                                "Etudiant",
+                                "Retraité",
+                                "Sans emploi"
                             ],
                         },
-                        "category": {
+                        "categorie": {
                             "type": "string",
                             "enum": [
-                                "Managerial",
-                                "Laborer",
-                                "Farmer"
-                               
+                                "Cadre",
+                                "Employé",
+                                "Ouvrier",
+                                "Agriculteur",
+                                "Artisan",
+                                "Commerçant",
+                                "Profession libérale",
+                                "Fonctionnaire",
+                                "Retraité",
+                                "Autre"
                             ],
                         }
                     },
-                    "required": [
-                        "label",
-                        "situation"
-                    ],
                 }
             },
-            "required": [
-                "firstName",
-                "lastName"
-            ],
         },
-        "project": {
+        "professionnel": {
             "type": "object",
             "properties": {
-                "projectType": {
+                "identifiant": {
                     "type": "string",
                 },
-                "realtorEmail": {
+                "email": {
                     "type": "string",
                 },
-                "realtorName": {
+                "nom": {
+                    "type": "string",
+                }
+            }
+        },
+        "projet": {
+            "type": "object",
+            "properties": {
+                "identifiant": {
                     "type": "string",
                 },
-                "createdAt": {
+                "typeProjet": {
+                    "type": "string",
+                    "enum": [
+                        "Achat",
+                        "Vente",
+                        "Bail",
+                        "Location"
+                    ],
+                },
+                "dateCreation": {
                     "type": "string",
                     "format": "date-time",
                 },
-                "uniqueIdentifier": {
+                "dateDebut": {
                     "type": "string",
+                    "format": "date-time",
                 },
-                "buyData": {
+                "statut": {
+                    "type": "string",
+                    "enum": [
+                        "En Réflexion",
+                        "Actif",
+                        "Suspendu",
+                        "Terminé"
+                    ],
+                },
+               
+                "detailsAchat": {
                     "type": "object",
                     "properties": {
-                        "propertyType": {
+                        "typeBien": {
                             "type": "string",
-                        },
-                        "propertyLocation": {
-                            "type": "object",
-                            "properties": {
-                                "addressLine": {
-                                    "type": "string",
-                                },
-                                "streetNumber": {
-                                    "type": "string",
-                                },
-                                "street": {
-                                    "type": "string",
-                                },
-                                "zipCode": {
-                                    "type": "string",
-                                },
-                                "city": {
-                                    "type": "string",
-                                },
-                                "country": {
-                                    "type": "string",
-                                },
-                                "lng": {
-                                    "type": "number",
-                                },
-                                "lat": {
-                                    "type": "number",
-                                },
-                                "name": {
-                                    "type": "string",
-                                },
-                                "radius": {
-                                    "type": "number",
-                                }
-                            },
-                            "required": [
-                                "addressLine",
-                                "streetNumber",
-                                "zipCode",
-                                "city",
-                                "country"
+                            "enum": [
+                                "Maison",
+                                "Appartement",
+                                "Terrain",
+                                "Parking",
+                                "Garage",
+                                "Local commercial",
+                                "Autre"
                             ],
                         },
-                        "propertyDetails": {
+                        "zoneRecherche": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "numeroDeRue": {
+                                        "type": "string",
+                                    },
+                                    "rue": {
+                                        "type": "string",
+                                    },
+                                    "complement": {
+                                        "type": "string",
+                                    },
+                                    "codePostal": {
+                                        "type": "string",
+                                    },
+                                    "ville": {
+                                        "type": "string",
+                                    },
+                                    "pays": {
+                                        "type": "string",
+                                    },
+                                    "longitude": {
+                                        "type": "number",
+                                    },
+                                    "latitude": {
+                                        "type": "number",
+                                    },
+                                    "rayon": {
+                                        "type": "number",
+                                    }
+                                },
+                            }
+                        },
+                        "criteresBien": {
                             "type": "object",
                             "properties": {
-                                "roomNumber": {
+                                "pieces": {
                                     "type": "integer",
                                 },
                                 "surface": {
                                     "type": "number",
                                 },
-                                "areaSurface": {
+                                "surfaceTerrain": {
                                     "type": "number",
                                 },
-                                "floorLevel": {
+                                "etage": {
                                     "type": "integer",
                                 },
-                                "numberOfFloors": {
+                                "nombreEtages": {
                                     "type": "integer",
                                 },
-                                "bathrooms": {
+                                "sallesDeBain": {
                                     "type": "integer",
                                 },
-                                "bedrooms": {
+                                "chambres": {
                                     "type": "integer",
                                 },
-                                "garageSpaces": {
+                                "placesGarage": {
                                     "type": "integer",
                                 },
-                                "parkingSpaces": {
+                                "placesParking": {
                                     "type": "integer",
                                 },
-                                "garden": {
+                                "jardin": {
                                     "type": "boolean",
                                 },
-                                "balcony": {
+                                "balcon": {
                                     "type": "boolean",
                                 },
                                 "condition": {
                                     "type": "string",
                                     "enum": [
-                                        "New",
-                                        "To renovate",
-                                        "Good condition",
                                         "Neuf",
-                                        "À rénover",
+                                        "A rénover",
                                         "Bon état"
                                     ],
                                 },
                                 "orientation": {
                                     "type": "string",
                                     "enum": [
-                                        "North",
-                                        "South",
-                                        "East",
-                                        "West",
                                         "Nord",
                                         "Sud",
                                         "Est",
@@ -304,72 +287,78 @@
                                 }
                             },
                         },
-                        "financialInformations": {
+                        "informationsFinancieres": {
                             "type": "object",
                             "properties": {
-                                "maxPropertyPrice": {
+                                "montantDuBien": {
                                     "type": "number",
                                 },
-                                "maxRenovationCost": {
+                                "montantTravaux": {
                                     "type": "number",
                                 },
-                                "maxProjectPrice": {
+                                "montantProjet": {
                                     "type": "number",
                                 },
-                                "contributionAmount": {
+                                "montantApport": {
                                     "type": "number",
                                 },
-                                "financingValidated": {
+                                "financementValide": {
                                     "type": "boolean",
                                 }
                             },
                         },
-                        "proximity": {
+                        "proximites": {
                             "type": "object",
                             "properties": {
-                                "school": {
+                                "ecole": {
                                     "type": "boolean",
                                 },
-                                "nursery": {
+                                "creche": {
                                     "type": "boolean",
                                 },
-                                "hospital": {
+                                "hopital": {
                                     "type": "boolean",
                                 },
-                                "shops": {
+                                "commerces": {
                                     "type": "boolean",
                                 }
                             },
                         }
                     },
                 },
-                "sellData": {
+                "detailsVente": {
                     "type": "object",
                     "properties": {
-                        "propertyType": {
+                        "typeBien": {
                             "type": "string",
+                            "enum": [
+                                "Maison",
+                                "Appartement",
+                                "Terrain",
+                                "Parking",
+                                "Garage",
+                                "Local commercial",
+                                "Autre"
+                            ],
                         },
-                        "roomNumber": {
+                        "pieces": {
                             "type": "integer",
                         },
                         "surface": {
                             "type": "number",
                         },
-                        "areaSurface": {
+                        "surfaceTerrain": {
                             "type": "number",
                         },
-                        "floorLevel": {
+                        "etage": {
                             "type": "integer",
                         },
-                        "numberOfFloors": {
+                        "nombreEtages": {
                             "type": "integer",
                         },
                         "condition": {
                             "type": "string",
                             "enum": [
-                                "New",
-                                "To renovate",
-                                "Good condition",
                                 "Neuf",
                                 "À rénover",
                                 "Bon état"
@@ -378,104 +367,86 @@
                         "orientation": {
                             "type": "string",
                             "enum": [
-                                "North",
-                                "South",
-                                "East",
-                                "West",
                                 "Nord",
                                 "Sud",
                                 "Est",
                                 "Ouest"
                             ],
                         },
-                        "propertyLocation": {
+                        "adresse": {
                             "type": "object",
                             "properties": {
-                                "id": {
+                                "numeroDeRue": {
                                     "type": "string",
                                 },
-                                "addressLine": {
+                                "rue": {
                                     "type": "string",
                                 },
-                                "streetNumber": {
+                                "complement": {
                                     "type": "string",
                                 },
-                                "street": {
+                                "codePostal": {
                                     "type": "string",
                                 },
-                                "zipCode": {
+                                "ville": {
                                     "type": "string",
                                 },
-                                "city": {
+                                "pays": {
                                     "type": "string",
                                 },
-                                "country": {
-                                    "type": "string",
-                                },
-                                "lng": {
+                                "longitude": {
                                     "type": "number",
                                 },
-                                "lat": {
-                                    "type": "number",
-                                },
-                                "name": {
-                                    "type": "string",
-                                },
-                                "zone": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "lng": {
-                                                "type": "number",
-                                            },
-                                            "lat": {
-                                                "type": "number",
-                                            }
-                                        },
-                                        "required": [
-                                            "lng",
-                                            "lat"
-                                        ]
-                                    },
-                                }
-                            },
-                            "required": [
-                                "id",
-                                "addressLine",
-                                "streetNumber",
-                                "zipCode",
-                                "city",
-                                "country"
-                            ],
-                        },
-                        "financialInformations": {
-                            "type": "object",
-                            "properties": {
-                                "expectedPrice": {
-                                    "type": "number",
-                                },
-                                "estimatedRenovationCost": {
-                                    "type": "number",
-                                },
-                                "professionalEstimatedPrice": {
+                                "latitude": {
                                     "type": "number",
                                 }
                             },
                         },
-                        "proximity": {
+                        "informationsFinancieres": {
                             "type": "object",
                             "properties": {
-                                "school": {
+                                "prixAttendu": {
+                                    "type": "number",
+                                },
+                                "montantEstimeRenovation": {
+                                    "type": "number",
+                                },
+                                "prixEstime": {
+                                    "type": "number",
+                                },
+                                "nomProfessionnelEstimation": {
+                                    "type": "number",
+                                }
+                            },
+                        },
+                        "estimation": {
+                            "type": "object",
+                            "properties": {
+                                "prixEstime": {
+                                    "type": "number",
+                                },
+                                "nomProfessionnel": {
+                                    "type": "string",
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "format": "date",
+                                }
+                            },
+                        },
+                        "proximites": {
+                            "type": "object",
+                            "properties": {
+                                "ecole": {
                                     "type": "boolean",
                                 },
-                                "nursery": {
+                                "creche": {
                                     "type": "boolean",
                                 },
-                                "hospital": {
+                                "hopital": {
                                     "type": "boolean",
                                 },
-                                "shops": {
+                                "commerces": {
                                     "type": "boolean",
                                 }
                             },
@@ -483,13 +454,6 @@
                     },
                 }
             },
-            "required": [
-                "projectType",
-                "realtorEmail",
-                "realtorName",
-                "createdAt",
-                "uniqueIdentifier"
-            ],
         }
     },
     "required": [
