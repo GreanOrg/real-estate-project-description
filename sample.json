@@ -1,0 +1,135 @@
+{
+    "applicant": {
+        "salutation": "string",
+        "firstName": "string",
+        "lastName": "string",
+        "dateOfBirth": "date",
+        "maritalStatus": "string",
+        "numberOfChildren": 0,
+        "children": [
+            {
+                "firstName": "string",
+                "lastName": "string",
+                "dateOfBirth": "date",
+                "situation": "string"
+            }
+        ],
+        "address": {
+            "id": "string",
+            "addressLine": "string",
+            "streetNumber": "string",
+            "street": "string",
+            "zipCode": "string",
+            "city": "string",
+            "country": "string",
+            "lng": 0.0,
+            "lat": 0.0,
+            "name": "string",
+            "zone": [
+                {
+                    "lng": 0.0,
+                    "lat": 0.0
+                }
+            ]
+        },
+        "email": "string",
+        "homePhoneNumber": "string",
+        "mobilePhoneNumber": "string",
+        "workPhoneNumber": "string",
+        "preferredPhoneNumber": "string",
+        "profession": {
+            "label": "string",
+            "situation": "Employee",
+            "category": "Managerial"
+        }
+    },
+    "project": {
+        "projectType": "string",
+        "realtorEmail": "string",
+        "realtorName": "string",
+        "createdAt": "datetime",
+        "uniqueIdentifier": "string",
+        "buyData": {
+            "propertyType": "string",
+            "propertyLocation": {
+                "addressLine": "string",
+                "streetNumber": "string",
+                "street": "string",
+                "zipCode": "string",
+                "city": "string",
+                "country": "string",
+                "lng": 0.0,
+                "lat": 0.0,
+                "name": "string",
+               "radius": 0.0
+            },
+            "propertyDetails": {
+                "roomNumber": 0,
+                "surface": 0.0,
+                "areaSurface": 0.0,
+                "floorLevel": 0,
+                "numberOfFloors": 0,
+                "bathrooms": 0,
+                "bedrooms": 0,
+                "garageSpaces": 0,
+                "^arkingSpaces": 0,
+                "garden": false,
+                "balcony": false,
+                "condition": "string",
+                "orientation": "string"
+            },
+            "financialInformations": {
+                "maxPropertyPrice": 0.0,
+                "maxRenovationCost": 0.0,
+                "maxProjectPrice": 0.0,
+                "contributionAmount": 0.0,
+                "financingValidated": true
+            },
+            "proximity": {
+                "school": false,
+                "nursery": false,
+                "hospital": false,
+                "shops": false
+            }
+        },
+        "sellData": {
+            "propertyType": "string",
+            "roomNumber": 0,
+            "surface": 0.0,
+            "areaSurface": 0.0,
+            "floorLevel": 0,
+            "numberOfFloors": 0,
+            "condition": "string",
+            "orientation": "string",
+            "propertyLocation": {
+                "id": "string",
+                "addressLine": "string",
+                "streetNumber": "string",
+                "street": "string",
+                "zipCode": "string",
+                "city": "string",
+                "country": "string",
+                "lng": 0.0,
+                "lat": 0.0,
+                "name": "string",
+                "zone": [
+                    {
+                        "lng": 0.0,
+                        "lat": 0.0
+                    }
+                ]
+            },
+            "financialInformations": {
+                "expectedPrice": 0.0,
+                "estimatedRenovationCost": 0.0,
+                "professionalEstimatedPrice": 0.0
+            },
+            "proximity": {
+                "school": false,
+                "nursery": false,
+                "hospital": false,
+                "shops": false
+            }
+        }
+    }
+}
