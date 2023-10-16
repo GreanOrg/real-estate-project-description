@@ -37,6 +37,9 @@
                     ],
                     "description": "Situation maritale du demandeur (Marital status of the applicant)."
                 },
+                "adresse": {
+                    "$ref": "/schemas/adresse"
+                },
                 "nombreEnfants": {
                     "type": "integer",
                     "description": "Nombre d'enfants du demandeur (Number of children of the applicant)."
@@ -66,44 +69,6 @@
                         }
                     },
                     "description": "Liste des enfants du demandeur (List of children of the applicant)."
-                },
-                "addresse": {
-                    "type": "object",
-                    "properties": {
-                        "numeroDeRue": {
-                            "type": "string",
-                            "description": "Numéro de rue (Street number)."
-                        },
-                        "rue": {
-                            "type": "string",
-                            "description": "Rue (Street)."
-                        },
-                        "complement": {
-                            "type": "string",
-                            "description": "Ligne d'adresse (Address line)."
-                        },
-                        "codePostal": {
-                            "type": "string",
-                            "description": "Code postal (Zip code)."
-                        },
-                        "ville": {
-                            "type": "string",
-                            "description": "Ville (City)."
-                        },
-                        "pays": {
-                            "type": "string",
-                            "description": "Pays (Country)."
-                        },
-                        "longitude": {
-                            "type": "number",
-                            "description": "Longitude (Longitude)."
-                        },
-                        "latitude": {
-                            "type": "number",
-                            "description": "Latitude (Latitude)."
-                        }
-                    },
-                    "description": "Adresse de contact du demandeur (Contact address of the applicant)."
                 },
                 "email": {
                     "type": "string",
@@ -219,59 +184,23 @@
                     ],
                     "description": "Statut du projet immobilier (Type of real estate status)."
                 },
-               
                 "detailsAchat": {
                     "type": "object",
                     "properties": {
-                        "typeBien": {
-                            "type": "string",
-                            "enum": [
-                                "Maison",
-                                "Appartement",
-                                "Terrain",
-                                "Parking",
-                                "Garage",
-                                "Local commercial",
-                                "Autre"
-                            ],
-                            "description": "Type de propriété recherchée (Type of property being sought)."
+                        "typesBien": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "$ref": "/schemas/typeBien"
+                            }
                         },
                         "zoneRecherche": {
                             "type": "array",
                             "items": {
                                 "type": "object",
                                 "properties": {
-                                    "numeroDeRue": {
-                                        "type": "string",
-                                        "description": "Numéro de rue (Street number)."
-                                    },
-                                    "rue": {
-                                        "type": "string",
-                                        "description": "Rue (Street)."
-                                    },
-                                    "complement": {
-                                        "type": "string",
-                                        "description": "Ligne d'adresse (Address line)."
-                                    },
-                                    "codePostal": {
-                                        "type": "string",
-                                        "description": "Code postal (Zip code)."
-                                    },
-                                    "ville": {
-                                        "type": "string",
-                                        "description": "Ville (City)."
-                                    },
-                                    "pays": {
-                                        "type": "string",
-                                        "description": "Pays (Country)."
-                                    },
-                                    "longitude": {
-                                        "type": "number",
-                                        "description": "Longitude (Longitude)."
-                                    },
-                                    "latitude": {
-                                        "type": "number",
-                                        "description": "Latitude (Latitude)."
+                                    "adresse": {
+                                        "$ref": "/schemas/adresse"
                                     },
                                     "rayon": {
                                         "type": "number",
@@ -377,26 +306,7 @@
                             "description": "Informations financières liées à la recherche de propriété (Financial details related to the property search)."
                         },
                         "proximites": {
-                            "type": "object",
-                            "properties": {
-                                "ecole": {
-                                    "type": "boolean",
-                                    "description": "Proximité des écoles (Proximity to schools)."
-                                },
-                                "creche": {
-                                    "type": "boolean",
-                                    "description": "Proximité des crèches (Proximity to nurseries)."
-                                },
-                                "hopital": {
-                                    "type": "boolean",
-                                    "description": "Proximité des hôpitaux (Proximity to hospitals)."
-                                },
-                                "commerces": {
-                                    "type": "boolean",
-                                    "description": "Proximité des commerces (Proximity to shops)."
-                                }
-                            },
-                            "description": "Proximité de services ou commerces (Proximity to services or shops)."
+                            "$ref": "/schemas/proximites"
                         }
                     },
                     "description": "Informations sur la recherche de propriété (Information about the property search)."
@@ -405,17 +315,10 @@
                     "type": "object",
                     "properties": {
                         "typeBien": {
-                            "type": "string",
-                            "enum": [
-                                "Maison",
-                                "Appartement",
-                                "Terrain",
-                                "Parking",
-                                "Garage",
-                                "Local commercial",
-                                "Autre"
-                            ],
-                            "description": "Type de propriété recherchée (Type of property being sought)."
+                            "$ref": "/schemas/typeBien"
+                        },
+                        "adresse": {
+                            "$ref": "/schemas/adresse"
                         },
                         "pieces": {
                             "type": "integer",
@@ -437,6 +340,27 @@
                             "type": "integer",
                             "description": "Nombre d'étages (Number of floors)."
                         },
+                        "style": {
+                            "type": "string",
+                            "enum": [
+                                "Moderne",
+                                "Classique",
+                                "Contemporain",
+                                "Ancien"
+                            ],
+                            "description": "Style du bien (Property style)."
+                        },
+                        "vue": {
+                            "type": "string",
+                            "enum": [
+                                "Mer",
+                                "Montagne",
+                                "Campagne",
+                                "Ville",
+                                "Jardin"
+                            ],
+                            "description": "Vue du bien (Property view)."
+                        },
                         "condition": {
                             "type": "string",
                             "enum": [
@@ -455,44 +379,6 @@
                                 "Ouest"
                             ],
                             "description": "Orientation du bien (Property orientation)."
-                        },
-                        "adresse": {
-                            "type": "object",
-                            "properties": {
-                                "numeroDeRue": {
-                                    "type": "string",
-                                    "description": "Numéro de rue (Street number)."
-                                },
-                                "rue": {
-                                    "type": "string",
-                                    "description": "Rue (Street)."
-                                },
-                                "complement": {
-                                    "type": "string",
-                                    "description": "Ligne d'adresse (Address line)."
-                                },
-                                "codePostal": {
-                                    "type": "string",
-                                    "description": "Code postal (Zip code)."
-                                },
-                                "ville": {
-                                    "type": "string",
-                                    "description": "Ville (City)."
-                                },
-                                "pays": {
-                                    "type": "string",
-                                    "description": "Pays (Country)."
-                                },
-                                "longitude": {
-                                    "type": "number",
-                                    "description": "Longitude (Longitude)."
-                                },
-                                "latitude": {
-                                    "type": "number",
-                                    "description": "Latitude (Latitude)."
-                                }
-                            },
-                            "description": "Détails de l'emplacement du bien à vendre (Details of the location of the property for sale)."
                         },
                         "informationsFinancieres": {
                             "type": "object",
@@ -536,26 +422,7 @@
                             "description": "Informations financières liées à la vente de propriété (Financial details related to the property sale)."
                         },
                         "proximites": {
-                            "type": "object",
-                            "properties": {
-                                "ecole": {
-                                    "type": "boolean",
-                                    "description": "Proximité des écoles (Proximity to schools)."
-                                },
-                                "creche": {
-                                    "type": "boolean",
-                                    "description": "Proximité des crèches (Proximity to nurseries)."
-                                },
-                                "hopital": {
-                                    "type": "boolean",
-                                    "description": "Proximité des hôpitaux (Proximity to hospitals)."
-                                },
-                                "commerces": {
-                                    "type": "boolean",
-                                    "description": "Proximité des commerces (Proximity to shops)."
-                                }
-                            },
-                            "description": "Proximité de services ou commerces (Proximity to services or shops)."
+                            "$ref": "/schemas/proximites"
                         }
                     },
                     "description": "Informations sur la vente de propriété (Information about the property for sale)."
@@ -568,5 +435,152 @@
         "contact",
         "projet"
     ],
-    "description": "Format standard d'échange de description de projet immobilier (Standard format for exchanging real estate project descriptions)."
+    "description": "Format standard d'échange de description de projet immobilier (Standard format for exchanging real estate project descriptions)",
+    "$defs": {
+        "typeBien": {
+            "$id": "/schemas/typeBien",
+            "type": "string",
+            "enum": [
+                "Maison",
+                "Appartement",
+                "Terrain",
+                "Parking",
+                "Garage",
+                "Ferme",
+                "Local commercial",
+                "Autre"
+            ],
+            "description": "Type de propriété recherchée (Type of property being sought)."
+        },
+        "proximites": {
+            "$id": "/schemas/proximites",
+            "type": "object",
+            "properties": {
+                "ecole": {
+                    "type": "boolean",
+                    "description": "Proximité des écoles."
+                },
+                "creche": {
+                    "type": "boolean",
+                    "description": "Proximité des crèches."
+                },
+                "hopital": {
+                    "type": "boolean",
+                    "description": "Proximité des hôpitaux."
+                },
+                "commerces": {
+                    "type": "boolean",
+                    "description": "Proximité des commerces."
+                },
+                "bars": {
+                    "type": "boolean",
+                    "description": "Proximité des bars."
+                },
+                "restaurants": {
+                    "type": "boolean",
+                    "description": "Proximité des commerces."
+                },
+                "parcs": {
+                    "type": "boolean",
+                    "description": "Proximité des parcs."
+                },
+                "plages": {
+                    "type": "boolean",
+                    "description": "Proximité des plages."
+                },
+                "transports": {
+                    "type": "boolean",
+                    "description": "Proximité des transports."
+                },
+                "gares": {
+                    "type": "boolean",
+                    "description": "Proximité des gares."
+                },
+                "aeroports": {
+                    "type": "boolean",
+                    "description": "Proximité des aéroports."
+                },
+                "autoroutes": {
+                    "type": "boolean",
+                    "description": "Proximité des autoroutes."
+                },
+                "metro": {
+                    "type": "boolean",
+                    "description": "Proximité des stations de métro."
+                },
+                "tramway": {
+                    "type": "boolean",
+                    "description": "Proximité des stations de tramway."
+                },
+                "bus": {
+                    "type": "boolean",
+                    "description": "Proximité des arrêts de bus."
+                },
+                "parking": {
+                    "type": "boolean",
+                    "description": "Proximité des parkings."
+                },
+                "forets": {
+                    "type": "boolean",
+                    "description": "Proximité des forêts."
+                },
+                "lacs": {
+                    "type": "boolean",
+                    "description": "Proximité des lacs."
+                },
+                "montagnes": {
+                    "type": "boolean",
+                    "description": "Proximité des montagnes."
+                },
+                "pistesSki": {
+                    "type": "boolean",
+                    "description": "Proximité des pistes de ski."
+                },
+                "golf": {
+                    "type": "boolean",
+                    "description": "Proximité des golfs."
+                }
+            },
+            "description": "Proximité de services ou commerces (Proximity to services or shops)."
+        },
+        "addresse": {
+            "$id": "/schemas/adresse",
+            "type": "object",
+            "properties": {
+                "numeroDeRue": {
+                    "type": "string",
+                    "description": "Numéro de rue (Street number)."
+                },
+                "rue": {
+                    "type": "string",
+                    "description": "Rue (Street)."
+                },
+                "complement": {
+                    "type": "string",
+                    "description": "Ligne d'adresse (Address line)."
+                },
+                "codePostal": {
+                    "type": "string",
+                    "description": "Code postal (Zip code)."
+                },
+                "ville": {
+                    "type": "string",
+                    "description": "Ville (City)."
+                },
+                "pays": {
+                    "type": "string",
+                    "description": "Pays (Country)."
+                },
+                "longitude": {
+                    "type": "number",
+                    "description": "Longitude (Longitude)."
+                },
+                "latitude": {
+                    "type": "number",
+                    "description": "Latitude (Latitude)."
+                }
+            },
+            "description": "Adresse"
+        }
+    }
 }
