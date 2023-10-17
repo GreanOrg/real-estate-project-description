@@ -10,7 +10,11 @@
                     "enum": [
                         "Monsieur",
                         "Madame",
-                        "Mademoiselle"
+                        "Mademoiselle",
+                        "Docteur",
+                        "Professeur",
+                        "Maître",
+                        "Autre"
                     ],
                     "description": "Civilité du demandeur (Salutation of the applicant)."
                 },
