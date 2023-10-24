@@ -2,51 +2,121 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "contact": {
+        "prospect": {
             "type": "object",
             "properties": {
-                "salutation": {
-                    "type": "string",
-                    "enum": [
-                        "Monsieur",
-                        "Madame",
-                        "Mademoiselle",
-                        "Docteur",
-                        "Professeur",
-                        "Maître",
-                        "Autre"
-                    ],
-                    "description": "Civilité du demandeur (Salutation of the applicant)."
-                },
-                "prenom": {
-                    "type": "string",
-                    "description": "Prénom du demandeur (First name of the applicant)."
-                },
-                "nom": {
-                    "type": "string",
-                    "description": "Nom du demandeur (Last name of the applicant)."
-                },
-                "dateDeNaissance": {
-                    "type": "string",
-                    "format": "date",
-                    "description": "Date de naissance du demandeur (Date of birth of the applicant)."
-                },
-                "statutMarital": {
-                    "type": "string",
-                    "enum": [
-                        "Célibataire",
-                        "Marrié(e)",
-                        "Divorcé(e)",
-                        "Feuf(ve)"
-                    ],
-                    "description": "Situation maritale du demandeur (Marital status of the applicant)."
-                },
-                "adresse": {
-                    "$ref": "/schemas/adresse"
-                },
-                "nombreEnfants": {
-                    "type": "integer",
-                    "description": "Nombre d'enfants du demandeur (Number of children of the applicant)."
+                "contacts": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifiant": {
+                                "type": "string",
+                                "description": "Identifiant unique du contact."
+                            },
+                            "salutation": {
+                                "type": "string",
+                                "enum": [
+                                    "Monsieur",
+                                    "Madame",
+                                    "Mademoiselle",
+                                    "Docteur",
+                                    "Professeur",
+                                    "Maître",
+                                    "Autre"
+                                ],
+                                "description": "Civilité du demandeur (Salutation of the applicant)."
+                            },
+                            "prenom": {
+                                "type": "string",
+                                "description": "Prénom du demandeur (First name of the applicant)."
+                            },
+                            "nom": {
+                                "type": "string",
+                                "description": "Nom du demandeur (Last name of the applicant)."
+                            },
+                            "dateDeNaissance": {
+                                "type": "string",
+                                "format": "date",
+                                "description": "Date de naissance du demandeur (Date of birth of the applicant)."
+                            },
+                            "statutMarital": {
+                                "type": "string",
+                                "enum": [
+                                    "Célibataire",
+                                    "Marrié(e)",
+                                    "Divorcé(e)",
+                                    "Feuf(ve)"
+                                ],
+                                "description": "Situation maritale du demandeur (Marital status of the applicant)."
+                            },
+                            "adresse": {
+                                "$ref": "/schemas/adresse"
+                            },
+                            "nombreEnfants": {
+                                "type": "integer",
+                                "description": "Nombre d'enfants du demandeur (Number of children of the applicant)."
+                            },
+                            "email": {
+                                "type": "string",
+                                "description": "Adresse électronique du demandeur (Email address of the applicant)."
+                            },
+                            "telephoneDomicile": {
+                                "type": "string",
+                                "description": "Numéro de téléphone domicile du demandeur (Home phone number of the applicant)."
+                            },
+                            "telephoneMobile": {
+                                "type": "string",
+                                "description": "Numéro de téléphone portable du demandeur (Mobile phone number of the applicant)."
+                            },
+                            "telephoneBureau": {
+                                "type": "string",
+                                "description": "Numéro de téléphone professionnel du demandeur (Work phone number of the applicant)."
+                            },
+                            "typeTelephonePrefere": {
+                                "type": "string",
+                                "description": "Numéro de téléphone préféré du demandeur (Preferred phone number of the applicant)."
+                            },
+                            "profession": {
+                                "type": "object",
+                                "properties": {
+                                    "libelle": {
+                                        "type": "string",
+                                        "description": "Libellé de la profession (Label or title of the profession)."
+                                    },
+                                    "situation": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Salarié",
+                                            "Indépendant",
+                                            "Etudiant",
+                                            "Retraité",
+                                            "Sans emploi"
+                                        ],
+                                        "description": "Situation professionnelle du demandeur (Employment situation of the applicant)."
+                                    },
+                                    "categorie": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Cadre",
+                                            "Employé",
+                                            "Ouvrier",
+                                            "Agriculteur",
+                                            "Artisan",
+                                            "Commerçant",
+                                            "Profession libérale",
+                                            "Fonctionnaire",
+                                            "Retraité",
+                                            "Autre"
+                                        ],
+                                        "description": "Catégorie socio-professionnelle du demandeur (Socio-professional category of the applicant)."
+                                    }
+                                },
+                                "description": "Informations sur la profession du demandeur (Information about the applicant's profession)."
+                            }
+                        },
+                        "description": "Informations sur le demandeur (Information about the applicant)."
+                    }
                 },
                 "enfants": {
                     "type": "array",
@@ -74,80 +144,32 @@
                     },
                     "description": "Liste des enfants du demandeur (List of children of the applicant)."
                 },
-                "email": {
+                "situation": {
                     "type": "string",
-                    "description": "Adresse électronique du demandeur (Email address of the applicant)."
-                },
-                "telephoneDomicile": {
-                    "type": "string",
-                    "description": "Numéro de téléphone domicile du demandeur (Home phone number of the applicant)."
-                },
-                "telephoneMobile": {
-                    "type": "string",
-                    "description": "Numéro de téléphone portable du demandeur (Mobile phone number of the applicant)."
-                },
-                "telephoneBureau": {
-                    "type": "string",
-                    "description": "Numéro de téléphone professionnel du demandeur (Work phone number of the applicant)."
-                },
-                "typeTelephonePrefere": {
-                    "type": "string",
-                    "description": "Numéro de téléphone préféré du demandeur (Preferred phone number of the applicant)."
-                },
-                "profession": {
-                    "type": "object",
-                    "properties": {
-                        "libelle": {
-                            "type": "string",
-                            "description": "Libellé de la profession (Label or title of the profession)."
-                        },
-                        "situation": {
-                            "type": "string",
-                            "enum": [
-                                "Salarié",
-                                "Indépendant",
-                                "Etudiant",
-                                "Retraité",
-                                "Sans emploi"
-                            ],
-                            "description": "Situation professionnelle du demandeur (Employment situation of the applicant)."
-                        },
-                        "categorie": {
-                            "type": "string",
-                            "enum": [
-                                "Cadre",
-                                "Employé",
-                                "Ouvrier",
-                                "Agriculteur",
-                                "Artisan",
-                                "Commerçant",
-                                "Profession libérale",
-                                "Fonctionnaire",
-                                "Retraité",
-                                "Autre"
-                            ],
-                            "description": "Catégorie socio-professionnelle du demandeur (Socio-professional category of the applicant)."
-                        }
-                    },
-                    "description": "Informations sur la profession du demandeur (Information about the applicant's profession)."
+                    "enum": [
+                        "Propriétaire",
+                        "Locateurs",
+                        "Occupant à titre gratuit",
+                        "Autre"
+                    ],
+                    "description": "Type de projet immobilier (Type of real estate project)."
                 }
-            },
-            "description": "Informations sur le demandeur (Information about the applicant)."
+            }
         },
         "professionnel": {
             "type": "object",
             "properties": {
                 "identifiant": {
                     "type": "string",
-                    "description": "Identifiantélectronique du professionnel immobilier (Identifier address of the realtor)."
+                    "description": "Identifiantélectronique du professionnel immobilier."
                 },
                 "email": {
                     "type": "string",
-                    "description": "Adresse électronique du professionnel immobilier (Email address of the realtor)."
+                    "description": "Adresse électronique du professionnel immobilier."
                 },
                 "nom": {
                     "type": "string",
-                    "description": "Nom du professionnel immobilier (Name of the realtor)."
+                    "description": "Nom du professionnel immobilier."
                 }
             }
         },
@@ -191,6 +213,16 @@
                 "detailsAchat": {
                     "type": "object",
                     "properties": {
+                        "destination": {
+                            "type": "string",
+                            "enum": [
+                                "Résidence principale",
+                                "Résidence secondaire",
+                                "Investissement",
+                                "Autre"
+                            ],
+                            "description": "Statut du projet immobilier (Type of real estate status)."
+                        },
                         "typesBien": {
                             "type": "array",
                             "items": {
@@ -324,7 +356,7 @@
                         "adresse": {
                             "$ref": "/schemas/adresse"
                         },
-                        "pieces": {
+                        "nombrePieces": {
                             "type": "integer",
                             "description": "Nombre de pièces (Number of rooms)."
                         },
@@ -343,6 +375,48 @@
                         "nombreEtages": {
                             "type": "integer",
                             "description": "Nombre d'étages (Number of floors)."
+                        },
+                        "typeChauffage": {
+                            "type": "string",
+                            "enum": [
+                                "Electrique",
+                                "Gaz",
+                                "Fuel",
+                                "Autre"
+                            ],
+                            "description": "Style du bien (Property style)."
+                        },
+                        "typeFenetres": {
+                            "type": "string",
+                            "description": "Type des fenêtres"
+                        },
+                        "consommationElectrique": {
+                            "type": "object",
+                            "properties": {
+                                "montantAnnuel": {
+                                    "type": "number",
+                                    "description": "Montant annuel des charges électriques"
+                                },
+                                "classe": {
+                                    "type": "string",
+                                    "description": "Classe du DPE."
+                                }
+                            },
+                            "description": "Informations relatives à la consommation électrique"
+                        },
+                        "consommationGaz": {
+                            "type": "object",
+                            "properties": {
+                                "montantAnnuel": {
+                                    "type": "number",
+                                    "description": "Montant annuel des charges gaz"
+                                },
+                                "classe": {
+                                    "type": "string",
+                                    "description": "Classe du DPE."
+                                }
+                            },
+                            "description": "Informations relatives à la consommation gaz"
                         },
                         "style": {
                             "type": "string",
@@ -384,6 +458,75 @@
                             ],
                             "description": "Orientation du bien (Property orientation)."
                         },
+                        "pieces": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "description": "Nom de la pièce"
+                                    },
+                                    "surface": {
+                                        "type": "number",
+                                        "description": "Surface de la pièce."
+                                    },
+                                    "revetement": {
+                                        "type": "string",
+                                        "description": "Revêtement du sol de la pièce"
+                                    },
+                                    "orientation": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Nord",
+                                            "Sud",
+                                            "Est",
+                                            "Ouest"
+                                        ],
+                                        "description": "Orientation de la pièce."
+                                    }
+                                }
+                            },
+                            "description": "Liste et détails de chaque pièce"
+                        },
+                        "travauxRealises": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "annee": {
+                                        "type": "number",
+                                        "description": "Année des travaux"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description des travaux."
+                                    },
+                                    "montant": {
+                                        "type": "number",
+                                        "description": "Montant des travaux"
+                                    }
+                                }
+                            },
+                            "description": "Liste et détails des travaux réalisés"
+                        },
+                        "travauxAPrevoir": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "description": {
+                                        "type": "string",
+                                        "description": "Description des travaux."
+                                    },
+                                    "montant": {
+                                        "type": "number",
+                                        "description": "Montant des travaux"
+                                    }
+                                }
+                            },
+                            "description": "Liste et détails des travaux à prévoir"
+                        },
                         "informationsFinancieres": {
                             "type": "object",
                             "properties": {
@@ -405,6 +548,35 @@
                                 }
                             },
                             "description": "Informations financières liées à la vente de propriété (Financial details related to the property sale)."
+                        },
+                        "mandat": {
+                            "type": "object",
+                            "properties": {
+                                "numero": {
+                                    "type": "string",
+                                    "description": "Numéro du mandat."
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Simple",
+                                        "Exclusif",
+                                        "Autre"
+                                    ],
+                                    "description": "Type du mandat"
+                                },
+                                "dateDebut": {
+                                    "type": "string",
+                                    "format": "date",
+                                    "description": "Date de début du mandat"
+                                },
+                                "dateFin": {
+                                    "type": "string",
+                                    "format": "date",
+                                    "description": "Date de fin du mandat"
+                                }
+                            },
+                            "description": "Informations relatives à l'éventuel mandat de vente."
                         },
                         "estimation": {
                             "type": "object",
