@@ -37,7 +37,7 @@
                             },
                             "dateDeNaissance": {
                                 "type": "string",
-                                "format": "date",
+                                "format": "date-time",
                                 "description": "Date de naissance du demandeur (Date of birth of the applicant)."
                             },
                             "statutMarital": {
@@ -133,7 +133,7 @@
                             },
                             "dateDeNaissance": {
                                 "type": "string",
-                                "format": "date",
+                                "format": "date-time",
                                 "description": "Date de naissance de l'enfant (Date of birth of the child)."
                             },
                             "situation": {
@@ -567,12 +567,12 @@
                                 },
                                 "dateDebut": {
                                     "type": "string",
-                                    "format": "date",
+                                    "format": "date-time",
                                     "description": "Date de début du mandat"
                                 },
                                 "dateFin": {
                                     "type": "string",
-                                    "format": "date",
+                                    "format": "date-time",
                                     "description": "Date de fin du mandat"
                                 }
                             },
@@ -591,7 +591,7 @@
                                 },
                                 "date": {
                                     "type": "string",
-                                    "format": "date",
+                                    "format": "date-time",
                                     "description": "Nom du professionnel ayant réalisé l'estimation."
                                 }
                             },
@@ -607,10 +607,6 @@
             "description": "Informations sur le projet immobilier (Information about the real estate project)."
         }
     },
-    "required": [
-        "contact",
-        "projet"
-    ],
     "description": "Format standard d'échange de description de projet immobilier (Standard format for exchanging real estate project descriptions)",
     "$defs": {
         "typeBien": {
