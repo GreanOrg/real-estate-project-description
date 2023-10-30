@@ -161,7 +161,7 @@
             "properties": {
                 "identifiant": {
                     "type": "string",
-                    "description": "Identifiantélectronique du professionnel immobilier."
+                    "description": "Identifiant électronique du professionnel immobilier."
                 },
                 "email": {
                     "type": "string",
@@ -170,6 +170,10 @@
                 "nom": {
                     "type": "string",
                     "description": "Nom du professionnel immobilier."
+                },
+                "telephone": {
+                    "type": "string",
+                    "description": "Numéro de téléphone du professionnel immobilier."
                 }
             }
         },
