@@ -226,7 +226,6 @@
                         "typesBien": {
                             "type": "array",
                             "items": {
-                                "type": "object",
                                 "$ref": "/schemas/typeBien"
                             }
                         },
