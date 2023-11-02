@@ -753,6 +753,10 @@
                 "latitude": {
                     "type": "number",
                     "description": "Latitude (Latitude)."
+                },
+                "googlePlaceId": {
+                    "type": "string",
+                    "description": "Identifiant d'une `Google Place`"
                 }
             },
             "description": "Adresse"
