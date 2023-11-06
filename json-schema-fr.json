@@ -148,7 +148,7 @@
                     "type": "string",
                     "enum": [
                         "Propriétaire",
-                        "Locateurs",
+                        "Locataire",
                         "Occupant à titre gratuit",
                         "Autre"
                     ],
