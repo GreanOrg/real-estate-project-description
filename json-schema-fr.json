@@ -44,9 +44,9 @@
                                 "type": "string",
                                 "enum": [
                                     "Célibataire",
-                                    "Marrié(e)",
+                                    "Marié(e)",
                                     "Divorcé(e)",
-                                    "Feuf(ve)"
+                                    "Veuf(ve)"
                                 ],
                                 "description": "Situation maritale du demandeur (Marital status of the applicant)."
                             },
