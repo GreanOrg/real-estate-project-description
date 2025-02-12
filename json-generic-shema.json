@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "prospect": {
+            "type": "object",
+            "properties": {
+                "contacts": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifiant": {
+                                "type": "string"
+                            },
+                            "salutation": {
+                                "type": "string",
+                                "enum": [
+                                    "Monsieur",
+                                    "Madame",
+                                    "Mademoiselle",
+                                    "Docteur",
+                                    "Professeur",
+                                    "Maître",
+                                    "Autre"
+                                ]
+                            },
+                            "prenom": {
+                                "type": "string"
+                            },
+                            "nom": {
+                                "type": "string"
+                            },
+                            "dateDeNaissance": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "telephone": {
+                              "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "professionnel": {
+            "type": "object",
+            "properties": {
+                "identifiant": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "nom": {
+                    "type": "string"
+                },
+                "telephone": {
+                    "type": "string"
+                }
+            }
+        },
+        "projet": {
+            "type": "object",
+            "properties": {
+               "typeProjet": {
+                    "type": "string",
+                    "enum": [
+                        "Achat",
+                        "Vente",
+                        "Bail",
+                        "Location"
+                    ],
+                    "description": "Type de projet immobilier (Type of real estate project)."
+                },
+                "criteres": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
