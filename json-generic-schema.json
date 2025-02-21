@@ -69,10 +69,10 @@
                "typeProjet": {
                     "type": "string",
                     "enum": [
-                        "Achat",
-                        "Vente",
-                        "Bail",
-                        "Location"
+                        "Buy",
+                        "Sell",
+                        "Tenant",
+                        "Lessor"
                     ],
                     "description": "Type de projet immobilier (Type of real estate project)."
                 },
