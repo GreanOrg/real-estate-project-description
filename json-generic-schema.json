@@ -32,7 +32,7 @@
                                 "type": "string"
                             },
                             "dateDeNaissance": {
-                                "type": "string",
+                                "type": "string"
                             },
                             "email": {
                               "type": "string"
